@@ -1,0 +1,76 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo */
+  .navbar-logo img {
+    height: 50px;
+  }
+  
+  /* Navigation menu */
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-menu li {
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-menu li:hover {
+    text-decoration: underline;
+  }
+  
+  /* Active menu item */
+  .navbar-menu .active {
+    font-weight: bold;
+    color: #ff6600;
+  }
+  
+  /* Right section (Search, Cart, Sign In) */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Sign-in button */
+  .signin-button {
+    padding: 8px 15px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .signin-button:hover {
+    background-color: #e05500;
+  }
+  
+ 

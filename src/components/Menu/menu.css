@@ -1,0 +1,58 @@
+.explore-menu {
+    text-align: center;
+    padding: 40px;
+}
+
+.explore-menu-text {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 24px; /* Bigger font */
+    font-weight: bold; /* Make it bold */
+    font-style: italic; /* Add italics for quote effect */
+    color: rgb(2, 185, 246); /* Set color to light blue */
+    text-align: center;
+    quotes: "“" "”"; /* Add quotation marks */
+}
+
+.explore-menu-text::before {
+    content: open-quote;
+    font-size: 30px;
+}
+
+.explore-menu-text::after {
+    content: close-quote;
+    font-size: 30px;
+}
+.explore-menu-list {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add spacing between items */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    padding: 10px;
+    white-space: nowrap; /* Prevent items from wrapping */
+}
+
+.explore-menu-item {
+    flex: 0 0 auto; /* Prevent shrinking and wrapping */
+    text-align: center;
+}
+
+.explore-menu-item img {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 100px;
+    
+    object-fit: cover;
+}
+
+.explore-menu-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.explore-menu-item:hover p {
+    color: red; /* Text turns red when hovered */
+   
+}
