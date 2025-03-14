@@ -1,58 +1,60 @@
+/* CSS */
 .explore-menu {
     text-align: center;
     padding: 40px;
-}
-
-.explore-menu-text {
+  }
+  
+  .explore-menu-text {
     max-width: 600px;
     margin: 0 auto 20px;
-    font-size: 24px; /* Bigger font */
-    font-weight: bold; /* Make it bold */
-    font-style: italic; /* Add italics for quote effect */
-    color: rgb(2, 185, 246); /* Set color to light blue */
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(2, 185, 246);
     text-align: center;
-    quotes: "“" "”"; /* Add quotation marks */
-}
-
-.explore-menu-text::before {
+    quotes: "“" "”";
+  }
+  
+  .explore-menu-text::before {
     content: open-quote;
     font-size: 30px;
-}
-
-.explore-menu-text::after {
+  }
+  
+  .explore-menu-text::after {
     content: close-quote;
     font-size: 30px;
-}
-.explore-menu-list {
+  }
+  
+  .explore-menu-list {
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Align items vertically */
-    gap: 20px; /* Add spacing between items */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
     padding: 10px;
-    white-space: nowrap; /* Prevent items from wrapping */
-}
-
-.explore-menu-item {
-    flex: 0 0 auto; /* Prevent shrinking and wrapping */
+    white-space: nowrap;
+  }
+  
+  .explore-menu-item {
+    flex: 0 0 auto;
     text-align: center;
-}
-
-.explore-menu-item img {
-    width: 150px; /* Adjust size as needed */
+  }
+  
+  .explore-menu-item img {
+    width: 150px;
     height: 150px;
-    border-radius: 100px;
-    
+    border-radius: 50%;
     object-fit: cover;
-}
-
-.explore-menu-item p {
+    border: 4px solid transparent;
+  }
+  
+  .explore-menu-item p {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
-}
-
-.explore-menu-item:hover p {
-    color: red; /* Text turns red when hovered */
-   
-}
+  }
+  
+  .explore-menu-item.active img {
+    border-color: tomato;
+  }
+  
