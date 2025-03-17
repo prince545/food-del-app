@@ -6,20 +6,21 @@ import FoodItem from '../FoodItem/FoodItem';
 const Food = () => {
   const { food_list } = useContext(StoreContext);
 
+
+  
+
   return (
-    <div className="food" _id="food">
+    <div className="food" id="food">
       <h1>Our Food</h1>
       <div className="food-list">
-        {food_list.map((item) => (
+        {food_list.map(item => (
           <FoodItem 
-            key={item.__id} // Use __id as the key instead of index
-            __id={item.__id} // Pass __id explicitly
+            key={item.__id} // Changed to __id
+            _id={item.__id} // Changed to __id and renamed prop to _id for FoodItem
             name={item.name} 
             price={item.price}
             description={item.description} 
-            image={item.image} 
-            rating={item.rating}
-            // Remove rating prop since it's not in food_list
+            image={item.image}
           />
         ))}
       </div>

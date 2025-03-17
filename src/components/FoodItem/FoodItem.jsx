@@ -6,8 +6,7 @@ import { StoreContext } from '../../context/StoreContext';
 const FoodItem = ({ _id, name, price, description, image }) => {
   const { cartItems, addtoCart, removefromCart } = useContext(StoreContext);
 
-  // Val_idate and log the _id and cartItems for this item
-  console.log(`Rendering FoodItem: ${name}, _id: ${_id}, Cart Count: ${cartItems[_id] || 0}, All Cart Items:`, cartItems);
+  
 
   return (
     <div className="food-item">
