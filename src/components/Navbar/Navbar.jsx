@@ -65,7 +65,7 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Right side icons and sign-in button */}
+      {/* Right s_ide icons and sign-in button */}
       <div className="navbar-right">
         <button className="icon-button" aria-label="Search">
           <img src={searchIcon} alt="Search" className="icon" />

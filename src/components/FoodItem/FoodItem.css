@@ -1,67 +1,105 @@
+
+
 .food-item {
-    width: 250px;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background-color: #dc232300;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .food-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .food-item img {
-    width: 100%;
-    height: 150px;
-    border-radius: 12px;
-    object-fit: cover;
-  }
-  
-  .food-item h2 {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #333;
-  }
-  
-  .food-item p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .food-item p:last-child {
-    font-weight: bold;
-    color: #ff6347;
-  }
-  
-  /* For the add icon */
-  .food-item img.add {
-    width: 40px; /* Adjust the size as needed */
-    height: 40px;
-    object-fit: contain;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  .food-item img.remove {
-    width: 40px; /* Adjust the size as needed */
-    height: 40px;
-    object-fit: contain;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  /* Container for the rating stars */
+  width: 260px; /* Slightly w_ider to match the proportions in the image */
+  padding: 20px; /* Increased padding for a more spacious feel */
+  margin: 15px; /* Adjusted margin for spacing between cards */
+  border-radius: 15px; /* More rounded corners to match the image */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Softer shadow for a subtle lift */
+  text-align: left; /* Align text to the left as in the image */
+  background-color: #ffffff; /* White background for the card */
+  transition: transform 0.3s ease-in-out;
+}
+
+.food-item:hover {
+  transform: translateY(-5px); /* Retain the hover effect */
+}
+
+.food-item-img-container {
+  position: relative; /* To position the add/remove icons */
+}
+
+.food-item-image {
+  width: 100%;
+  height: 160px; /* Slightly taller to match the image proportions */
+  border-radius: 12px; /* Rounded corners for the image */
+  object-fit: cover;
+}
+
+.food-item h2 {
+  font-size: 18px; /* Smaller font size to match the image */
+  margin: 10px 0 5px 0; /* Adjusted margin for spacing */
+  color: #333; /* Dark color for the name */
+  font-weight: 600; /* Medium bold for the name */
+  font-family: 'Arial', sans-serif; /* A clean, modern font */
+}
+
+.description {
+  font-size: 12px; /* Smaller font for the description */
+  color: #8c8c8c; /* Lighter gray color for the description */
+  margin: 5px 0; /* Adjusted margin */
+  font-family: 'Arial', sans-serif; /* Consistent font */
+  line-height: 1.4; /* Better readability */
+}
+
+.price {
+  font-size: 16px; /* Slightly larger font for the price */
+  font-weight: bold; /* Bold price */
+  color: #ff4500; /* Orange-red color to match the image */
+  margin-top: 5px; /* Adjusted margin */
+  font-family: 'Arial', sans-serif; /* Consistent font */
+}
+
+/* For the add icon */
+.food-item .add {
+  width: 30px; /* Smaller size to match the image */
+  height: 30px;
+  object-fit: contain;
+  position: absolute;
+  bottom: 10px; /* Position at the bottom-right of the image */
+  right: 10px;
+  cursor: pointer;
+  background-color: #ffffff; /* White background for the icon */
+  border-radius: 50%; /* Circular shape */
+   /* Padding to make the circle larger */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the icon */
+}
+
+/* For the remove icon */
+.food-item .remove {
+  width: 30px; /* Same size as the add icon */
+  height: 30px;
+  ; /* Padding to make the circle larger */
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Counter container for add/remove icons */
+.food-item-counter {
+  position :absolute;
+  bottom: 15px; /* Position at the bottom of the image */
+  right: 15px; /* Position at the right of the image */
+  display: flex; /* Align icons horizontally */
+  align-items: center; /* Center icons vertically */
+  gap: 10px; /* Spacing between icons */
+  border-radius: 50px; /* Rounded container */
+  padding: 1px 50px ; /* Padding for the container */
+  background-color: #ffffff; /* White background for the container */
+
 
   
-  .rating {
-    display: flex;
-    justify-content: center;
-    margin: 5px 0; /* Adjust the spacing */
-  }
-  
-  .rating img {
-    width: 80px; /* Smaller size for stars */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
+}
+
+
+
+/* Container for the rating stars */
+.rating {
+  display: flex;
+  align-items: center;
+  margin: 5px 0; /* Adjusted spacing */
+}
+
+.rating img {
+  width: 70px; /* Smaller size for stars to match the image */
+  height: auto; /* Maintain aspect ratio */
+}

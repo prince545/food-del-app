@@ -10,7 +10,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="explore-menu" id="explore-menu">
+    <div className="explore-menu" _id="explore-menu">
       <h1>Explore Our Menu</h1>
       <p className="explore-menu-text">Lots of dishes to make you hungry</p>
 
@@ -54,7 +54,7 @@ export default Menu;
 //   };
 
 //   return (
-//     <div className="explore-menu" id="explore-menu">
+//     <div className="explore-menu" _id="explore-menu">
 //       <h1>Explore Our Menu</h1>
 //       <p className="explore-menu-text">Lots of dishes to make you hungry</p>
 

@@ -1,22 +1,25 @@
-
-import React, { useState } from 'react';
 import './FoodItem.css';
-import { add_icon_green } from '../../assets/frontend_assets/assets';
-import { add_icon_white } from '../../assets/frontend_assets/assets';
-import { remove_icon_red } from '../../assets/frontend_assets/assets';
-import { rating_starts } from '../../assets/frontend_assets/assets';
+import { add_icon_green, add_icon_white, remove_icon_red, rating_starts } from '../../assets/frontend_assets/assets';
+import { useContext } from 'react';
+import { StoreContext } from '../../context/StoreContext';
 
-const FoodItem = ({ name, price, description, image,  }) => {
-  const [itemCount, setItemCount] = useState(0);
+const FoodItem = ({ _id, name, price, description, image }) => {
+  const { cartItems, addtoCart, removefromCart } = useContext(StoreContext);
+
+  // Val_idate and log the _id and cartItems for this item
+  console.log(`Rendering FoodItem: ${name}, _id: ${_id}, Cart Count: ${cartItems[_id] || 0}, All Cart Items:`, cartItems);
 
   return (
     <div className="food-item">
       <div className="food-item-img-container">
         <img className="food-item-image" src={image} alt={name} />
-        {itemCount === 0 ? (
+        {cartItems[_id] === 0 || !cartItems[_id] ? (
           <img
             className="add"
-            onClick={() => setItemCount((prev) => prev + 1)}
+            onClick={() => {
+              console.log(`Adding item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
+              addtoCart(_id);
+            }}
             src={add_icon_white}
             alt="Add"
           />
@@ -24,14 +27,20 @@ const FoodItem = ({ name, price, description, image,  }) => {
           <div className="food-item-counter">
             <img
               className="remove"
-              onClick={() => setItemCount((prev) => Math.max(prev - 1, 0))}
+              onClick={() => {
+                console.log(`Removing item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
+                removefromCart(_id);
+              }}
               src={remove_icon_red}
               alt="Remove"
             />
-            <p>{itemCount}</p>
+            <p>{cartItems[_id] || 0}</p> {/* Fallback to 0 if undefined */}
             <img
               className="add"
-              onClick={() => setItemCount((prev) => prev + 1)}
+              onClick={() => {
+                console.log(`Adding item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
+                addtoCart(_id);
+              }}
               src={add_icon_green}
               alt="Add"
             />

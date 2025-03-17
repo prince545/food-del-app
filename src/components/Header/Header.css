@@ -18,7 +18,7 @@
     padding: 20px;
     color: white; /* Ensure text is visible */
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-    overflow: hidden; /* Ensure overlay doesn't extend outside the container */
+    overflow: h_idden; /* Ensure overlay doesn't extend outs_ide the container */
 }
 
 /* Overlay for Enhanced Readability */
@@ -67,7 +67,7 @@
     display: inline-block;
     font-size: 1rem;
     font-weight: bold;
-    border: 2px solid white; /* Adding a subtle border */
+    border: 2px sol_id white; /* Adding a subtle border */
     transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
 }
 
