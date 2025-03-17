@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Menu.css';
 import { menu_list } from '../../assets/frontend_assets/assets';
+import Food from '../Food/FOod';
 
 const Menu = () => {
   const [category, setCategory] = useState("All");
@@ -14,7 +15,7 @@ const Menu = () => {
       <h1>Explore Our Menu</h1>
       <p className="explore-menu-text">Lots of dishes to make you hungry</p>
 
-      <div className="explore-menu-list">
+      <div className ="explore-menu-list" >
         {menu_list.map(({ menu_name, menu_image }, index) => (
           <div
             key={index}
@@ -26,6 +27,7 @@ const Menu = () => {
           </div>
         ))}
       </div>
+      <Food category={category} />
     </div>
   );
 };
