@@ -1,0 +1,35 @@
+.app-downloaad {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px 20px;
+  }
+  
+  .app-downloaad h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .app-downloaad p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .app-download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .app-download-buttons img {
+    width: 180px;  /* Adjust the size */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .app-download-buttons img:hover {
+    transform: scale(1.1);
+  }
+  
