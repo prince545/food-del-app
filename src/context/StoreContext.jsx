@@ -15,22 +15,31 @@ const StoreContextProvider = ({ children }) => {
 
   const removefromCart = (item_id) => {
     console.log(`Removing from cart, Item _id: ${item_id}, Current Cart:`, cartItems);
-    setCartItems((prev) => ({
-      ...prev,
-      [item_id]: prev[item_id] > 1 ? prev[item_id] - 1 : 0,
-    }));
+    setCartItems((prev) => {
+      const newCart = { ...prev };
+      if (newCart[item_id] > 1) {
+        newCart[item_id] -= 1;
+      } else {
+        delete newCart[item_id];  // Remove item completely from the cart
+      }
+      return newCart;
+    });
   };
+   
+
 
   useEffect(() => {
-    console.log('Cart Items Updated:', cartItems);
+   console.log('Cart Items Updated:', cartItems);
   }, [cartItems]);
 
+  
   const contextValue = {
     food_list,
     cartItems,
     setCartItems,
     addtoCart,
     removefromCart,
+    
   };
 
   return (

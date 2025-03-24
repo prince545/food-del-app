@@ -1,105 +1,173 @@
-
-/* Login Popup Container */
-.login-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 2rem;
-    width: 350px;
-    max-width: 90%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    z-index: 1000;
-    transition: 0.3s ease-in-out;
-}
-
-/* Overlay for Background Blur */
-.login-popup-overlay {
+/* CSS Variables (assuming these are defined globally, reused from Navbar) */
+:root {
+    --primary-bg: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --accent-color: #6c5ce7;
+    --danger-color: #ff4757;
+    --transition: all 0.3s ease;
+    --border-radius: 16px;
+  }
+  
+  /* Overlay */
+  .login-popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent gray */
+    backdrop-filter: blur(2px); /* Slight blur for depth */
     z-index: 999;
-}
-
-/* Close Button */
-.login-popup .close-btn {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  
+  /* Login Popup Container */
+  .login-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+    max-width: 400px;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  /* Close Button */
+  .close-btn {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #555;
-    transition: 0.3s;
-}
-
-.login-popup .close-btn:hover {
-    color: red;
-}
-
-/* Heading */
-.login-popup h2 {
     font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-/* Input Fields */
-.login-popup input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-}
-
-/* Login Button */
-.login-popup button {
-    width: 100%;
-    padding: 10px;
-    background: tomato;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    color: var(--text-secondary);
     cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.login-popup button:hover {
-    background: rgb(210, 45, 30);
-}
-
-/* Register / Forgot Password Links */
-.login-popup .login-links {
-    margin-top: 10px;
+    transition: var(--transition);
+  }
+  
+  .close-btn:hover {
+    color: var(--danger-color);
+    transform: rotate(90deg);
+  }
+  
+  /* Heading */
+  .login-popup h2 {
+    margin: 0 0 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Input Fields */
+  .login-popup input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 15px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+  }
+  
+  .login-popup input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+  }
+  
+  /* Login Button */
+  .login-popup button {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .login-popup button:hover {
+    background: #5a4cd1;
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  /* Links Section */
+  .login-links {
+    margin-top: 20px;
+    text-align: center;
     font-size: 14px;
-}
-
-.login-popup .login-links a {
-    color: tomato;
+    color: var(--text-secondary);
+  }
+  
+  .login-links a {
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
-    margin: 0 5px;
-    transition: 0.3s;
-}
-
-.login-popup .login-links a:hover {
+    transition: var(--transition);
+  }
+  
+  .login-links a:hover {
+    color: #5a4cd1;
     text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 400px) {
-    .login-popup {
-        width: 90%;
-        padding: 1.5rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-}
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 480px) {
+    .login-popup {
+      padding: 30px 20px;
+      max-width: 90%;
+    }
+  
+    .login-popup h2 {
+      font-size: 24px;
+    }
+  
+    .login-popup input,
+    .login-popup button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .close-btn {
+      font-size: 20px;
+    }
+  }
