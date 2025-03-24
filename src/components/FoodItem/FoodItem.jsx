@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 
 const FoodItem = ({ _id, name, price, description, image }) => {
-  const { cartItems, addtoCart, removefromCart } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
   
 
@@ -17,7 +17,7 @@ const FoodItem = ({ _id, name, price, description, image }) => {
             className="add"
             onClick={() => {
               console.log(`Adding item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
-              addtoCart(_id);
+              addToCart(_id);
             }}
             src={add_icon_white}
             alt="Add"
@@ -28,7 +28,7 @@ const FoodItem = ({ _id, name, price, description, image }) => {
               className="remove"
               onClick={() => {
                 console.log(`Removing item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
-                removefromCart(_id);
+                removeFromCart(_id);
               }}
               src={remove_icon_red}
               alt="Remove"
@@ -38,7 +38,7 @@ const FoodItem = ({ _id, name, price, description, image }) => {
               className="add"
               onClick={() => {
                 console.log(`Adding item: ${name}, _id: ${_id}, Current Cart:`, cartItems);
-                addtoCart(_id);
+                addToCart(_id);
               }}
               src={add_icon_green}
               alt="Add"

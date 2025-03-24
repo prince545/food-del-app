@@ -1,0 +1,167 @@
+/* Scoped to .place-order */
+.place-order {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .place-order__container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .place-order__delivery-info {
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  .place-order__heading {
+    color: #1c2526; /* Zomato dark gray */
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .place-order__error {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .place-order__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .place-order__form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .place-order__form-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #e8ecef;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #1c2526;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .place-order__form-input:focus {
+    outline: none;
+    border-color: #ff2e56; /* Zomato red */
+    box-shadow: 0 0 5px rgba(255, 46, 86, 0.3);
+  }
+  
+  .place-order__form-input::placeholder {
+    color: #828282;
+  }
+  
+  /* Cart Totals Styles */
+  .place-order__totals {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px;
+    border: 1px solid #e8ecef;
+    border-radius: 8px;
+  }
+  
+  .place-order__totals-title {
+    color: #1c2526;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .place-order__totals-details {
+    margin-bottom: 20px;
+  }
+  
+  .place-order__totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    color: #1c2526;
+    font-size: 15px;
+  }
+  
+  .place-order__totals-row--final {
+    font-weight: 600;
+    color: #ff2e56;
+    font-size: 18px;
+    border-top: 1px solid #e8ecef;
+    padding-top: 10px;
+  }
+  
+  .place-order__submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #ff2e56;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .place-order__submit-btn:hover {
+    background: #e0274b;
+    transform: translateY(-2px);
+  }
+  
+  .place-order__submit-btn:active {
+    background: #cc2545;
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .place-order {
+      margin: 10px;
+      padding: 15px;
+    }
+  
+    .place-order__container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .place-order__heading {
+      font-size: 20px;
+    }
+  
+    .place-order__form-input {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .place-order__totals-title {
+      font-size: 16px;
+    }
+  
+    .place-order__totals-row {
+      font-size: 14px;
+    }
+  
+    .place-order__totals-row--final {
+      font-size: 16px;
+    }
+  
+    .place-order__submit-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }

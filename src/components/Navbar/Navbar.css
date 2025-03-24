@@ -107,6 +107,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  color : white;
   padding: 8px;
   border-radius: 50%;
   transition: var(--transition);
