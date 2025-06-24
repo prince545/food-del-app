@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './menu.css';
+import './Menu.css';
 import { menu_list } from '../../assets/frontend_assets/assets';
 import Food from '../Food/Food';
 
