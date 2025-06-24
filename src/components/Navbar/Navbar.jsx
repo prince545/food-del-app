@@ -77,7 +77,7 @@ const Navbar = ({ setShowLogin, onFilterChange }) => {
           {[
             { name: "Home", key: "home", path: "/" },
             { name: "Menu", key: "menu", path: "/menu" },
-            { name: "Contact Us", key: "contact-us", path: "/contact-us" },
+            
           ].map((item) => (
             <li
               key={item.key}
