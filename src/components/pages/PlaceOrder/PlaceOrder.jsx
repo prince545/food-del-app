@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { StoreContext } from "../../../context/StoreContext";
-import "./PlaceOrder.css";
+import "./PLaceOrder.css";
 
 const PlaceOrder = () => {
   const context = useContext(StoreContext);
