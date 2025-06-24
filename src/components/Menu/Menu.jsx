@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './menu.css';
 import { menu_list } from '../../assets/frontend_assets/assets';
-import Food from '../Food/FOod';
+import Food from '../Food/Food';
 
 const Menu = () => {
   const [category, setCategory] = useState("All");
