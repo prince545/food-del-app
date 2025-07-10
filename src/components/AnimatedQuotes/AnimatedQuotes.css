@@ -1,0 +1,361 @@
+/* Animated Quotes Component */
+.animated-quotes {
+  position: relative;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animated-quotes.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Default Quote Style */
+.animated-quotes .quote-container {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-quotes .quote-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-quotes .quote-icon {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-size: 24px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animated-quotes .quote-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.animated-quotes .quote-emoji {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.animated-quotes .quote-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.animated-quotes .quote-author {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.animated-quotes .quote-decoration {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.animated-quotes .decoration-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff6b35;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animated-quotes .decoration-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.animated-quotes .decoration-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Minimal Quote Style */
+.animated-quotes.minimal {
+  text-align: center;
+  padding: 20px;
+}
+
+.animated-quotes.minimal .quote-content {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.animated-quotes.minimal .quote-emoji {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.animated-quotes.minimal .quote-text {
+  font-size: 16px;
+  color: #374151;
+  margin: 0;
+}
+
+/* Empty Cart Quote Style */
+.animated-quotes.empty-cart {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.animated-quotes.empty-cart .quote-container {
+  background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
+  border: 2px solid #fecaca;
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.1);
+}
+
+.animated-quotes.empty-cart .quote-container::before {
+  background: linear-gradient(90deg, #ef4444, #f87171, #ef4444);
+}
+
+.animated-quotes.empty-cart .quote-icon {
+  color: #ef4444;
+  opacity: 0.5;
+}
+
+.animated-quotes.empty-cart .quote-emoji {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.animated-quotes.empty-cart .quote-text {
+  font-size: 20px;
+  color: #dc2626;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.animated-quotes.empty-cart .quote-author {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.animated-quotes.empty-cart .decoration-dot {
+  background: #ef4444;
+}
+
+/* Floating Quote Style */
+.animated-quotes.floating {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.animated-quotes.floating .quote-bubble {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+  position: relative;
+  animation: floatBubble 4s ease-in-out infinite;
+}
+
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-15px) rotate(0.5deg); }
+}
+
+.animated-quotes.floating .quote-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f7931e;
+}
+
+.animated-quotes.floating .quote-emoji {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.animated-quotes.floating .quote-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.animated-quotes.floating .quote-author {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cart__content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .cart__total {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-quotes .quote-container {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .animated-quotes .quote-text {
+    font-size: 16px;
+  }
+  
+  .animated-quotes .quote-emoji {
+    font-size: 28px;
+  }
+  
+  .animated-quotes.floating {
+    bottom: 20px;
+    right: 20px;
+    max-width: 250px;
+  }
+  
+  .animated-quotes.floating .quote-bubble {
+    padding: 16px;
+  }
+  
+  .animated-quotes.floating .quote-text {
+    font-size: 13px;
+  }
+  
+  .animated-quotes.empty-cart .quote-text {
+    font-size: 18px;
+  }
+  
+  .animated-quotes.empty-cart .quote-emoji {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-quotes .quote-container {
+    padding: 16px;
+  }
+  
+  .animated-quotes .quote-text {
+    font-size: 15px;
+  }
+  
+  .animated-quotes.floating {
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+  }
+  
+  .animated-quotes.floating .quote-bubble {
+    padding: 12px;
+  }
+  
+  .animated-quotes.floating .quote-text {
+    font-size: 12px;
+  }
+  
+  .animated-quotes.empty-cart .quote-text {
+    font-size: 16px;
+  }
+  
+  .animated-quotes.empty-cart .quote-emoji {
+    font-size: 28px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .animated-quotes .quote-container {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .animated-quotes .quote-text {
+    color: #f9fafb;
+  }
+  
+  .animated-quotes .quote-author {
+    color: #9ca3af;
+  }
+  
+  .animated-quotes.minimal .quote-content {
+    background: rgba(31, 41, 55, 0.9);
+  }
+  
+  .animated-quotes.minimal .quote-text {
+    color: #f3f4f6;
+  }
+  
+  .animated-quotes.empty-cart .quote-container {
+    background: linear-gradient(135deg, #1f1f1f 0%, #0f0f0f 100%);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+  
+  .animated-quotes.empty-cart .quote-text {
+    color: #fca5a5;
+  }
+}
+
+/* Print styles */
+@media print {
+  .animated-quotes {
+    display: none;
+  }
+} 

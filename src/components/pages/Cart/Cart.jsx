@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../../context/StoreContext';
+import AnimatedQuotes from '../../AnimatedQuotes/AnimatedQuotes';
 import './Cart.css';
 
 const Cart = () => {
@@ -35,7 +36,10 @@ const Cart = () => {
     <div className="cart">
       <h2 className="cart__heading">Your Cart</h2>
       {Object.keys(cartItems).length === 0 ? (
-        <p className="cart__empty">Your cart is empty</p>
+        <div>
+          <p className="cart__empty">Your cart is empty</p>
+          <AnimatedQuotes variant="empty-cart" />
+        </div>
       ) : (
         <div className="cart__content">
           <div className="cart__items">
@@ -54,8 +58,11 @@ const Cart = () => {
                   const item = food_list.find((product) => product.__id === itemId);
                   if (!item) return null;
 
+                  const displayPrice = (item.price * 10).toFixed(2);
+                  const itemTotal = (item.price * 10 * cartItems[item.__id]).toFixed(2);
+
                   return (
-                    <tr key={item.__id}> {/* Changed itemId to item.__id */}
+                    <tr key={item.__id}>
                       <td>
                         <div className="cart__item-info">
                           {item.image && (
@@ -64,21 +71,37 @@ const Cart = () => {
                           <span>{item.name}</span>
                         </div>
                       </td>
-                      <td>₹{item.price}</td>
-                      <td>{cartItems[item.__id]}</td> {/* Changed itemId to item.__id */}
-                      <td>₹{(item.price * cartItems[item.__id]).toFixed(2)}</td> {/* Changed itemId to item.__id */}
+                      <td className="cart__price">₹{displayPrice}</td>
+                      <td>
+                        <div className="cart__quantity-controls">
+                          <button
+                            className="cart__action-btn cart__action-btn--remove"
+                            onClick={() => removeFromCart(item.__id)}
+                          >
+                            -
+                          </button>
+                          <span className="cart__quantity">{cartItems[item.__id]}</span>
+                          <button
+                            className="cart__action-btn cart__action-btn--add"
+                            onClick={() => addToCart(item.__id)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </td>
+                      <td className="cart__price">₹{itemTotal}</td>
                       <td>
                         <button
                           className="cart__action-btn cart__action-btn--remove"
-                          onClick={() => removeFromCart(item.__id)}
+                          onClick={() => {
+                            // Remove all items of this type
+                            for (let i = 0; i < cartItems[item.__id]; i++) {
+                              removeFromCart(item.__id);
+                            }
+                          }}
+                          style={{ fontSize: '12px', padding: '4px 8px' }}
                         >
-                          -
-                        </button>
-                        <button
-                          className="cart__action-btn cart__action-btn--add"
-                          onClick={() => addToCart(item.__id)}
-                        >
-                          +
+                          Remove
                         </button>
                       </td>
                     </tr>
@@ -89,19 +112,19 @@ const Cart = () => {
           </div>
 
           <div className="cart__total">
-            <h3 className="cart__total-title">Cart Total</h3>
+            <h3 className="cart__total-title">Cart Summary</h3>
             <div className="cart__total-details">
               <div className="cart__total-row">
-                <span>Subtotal:</span>
-                <span>₹{getCartTotal().toFixed(2)}</span>
+                <span>Subtotal ({Object.keys(cartItems).length} items)</span>
+                <span className="cart__price">₹{(getCartTotal() * 10).toFixed(2)}</span>
               </div>
               <div className="cart__total-row">
-                <span>Delivery Fee:</span>
-                <span>₹5.00</span>
+                <span>Delivery Fee</span>
+                <span className="cart__price">₹50.00</span>
               </div>
               <div className="cart__total-row cart__total-row--final">
-                <span>Total:</span>
-                <span>₹{(getCartTotal() + 5).toFixed(2)}</span>
+                <span>Total</span>
+                <span className="cart__price cart__price--total">₹{((getCartTotal() * 10) + 50).toFixed(2)}</span>
               </div>
             </div>
             <button className="cart__checkout-btn" onClick={handleCheckout}>

@@ -6,7 +6,7 @@ import searchIcon from "../../assets/frontend_assets/search_icon.png";
 import basketIcon from "../../assets/frontend_assets/basket_icon.png";
 import logo from "../../assets/frontend_assets/logo.png";
 
-const Navbar = ({ setShowLogin, onFilterChange }) => {
+const Navbar = ({ setShowLogin, onFilterChange = () => {} }) => {
   const [menu, setMenu] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,20 +32,26 @@ const Navbar = ({ setShowLogin, onFilterChange }) => {
   const handleFilterChange = (filterName, value) => {
     const updatedFilters = { ...filters, [filterName]: value };
     setFilters(updatedFilters);
-    onFilterChange({ filters: updatedFilters, sortBy, searchQuery });
+    if (onFilterChange) {
+      onFilterChange({ filters: updatedFilters, sortBy, searchQuery });
+    }
   };
 
   // Handle sort change
   const handleSortChange = (option) => {
     setSortBy(option);
-    onFilterChange({ filters, sortBy: option, searchQuery });
+    if (onFilterChange) {
+      onFilterChange({ filters, sortBy: option, searchQuery });
+    }
   };
 
   // Handle search input change
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    onFilterChange({ filters, sortBy, searchQuery: query });
+    if (onFilterChange) {
+      onFilterChange({ filters, sortBy, searchQuery: query });
+    }
   };
 
   return (
@@ -117,8 +123,6 @@ const Navbar = ({ setShowLogin, onFilterChange }) => {
       {/* Filter Bar Content (Visible when scrolled) */}
       <div className={`filter-bar ${isScrolled ? "show" : "hide"}`}>
         <div className="filter-buttons">
-          <button className="filter-btn">Filter</button>
-
           {/* Sort By Dropdown */}
           <div className="dropdown">
             <button className="filter-btn dropdown">
@@ -130,46 +134,7 @@ const Navbar = ({ setShowLogin, onFilterChange }) => {
               <div onClick={() => handleSortChange("ratingDesc")}>Rating: High to Low</div>
             </div>
           </div>
-
-          {/* Toggleable Filter Buttons */}
-          <button
-            className={`filter-btn ${filters.fastDelivery ? "active" : ""}`}
-            onClick={() => handleFilterChange("fastDelivery", !filters.fastDelivery)}
-          >
-            Fast Delivery
-          </button>
-          <button
-            className={`filter-btn ${filters.ratingsAbove4 ? "active" : ""}`}
-            onClick={() => handleFilterChange("ratingsAbove4", !filters.ratingsAbove4)}
-          >
-            Ratings 4.0+
-          </button>
-          <button
-            className={`filter-btn ${filters.pureVeg ? "active" : ""}`}
-            onClick={() => handleFilterChange("pureVeg", !filters.pureVeg)}
-          >
-            Pure Veg
-          </button>
-          <button
-            className={`filter-btn ${filters.offers ? "active" : ""}`}
-            onClick={() => handleFilterChange("offers", !filters.offers)}
-          >
-            Offers
-          </button>
-          <button
-            className={`filter-btn ${filters.priceRange === "300-600" ? "active" : ""}`}
-            onClick={() => handleFilterChange("priceRange", filters.priceRange === "300-600" ? "" : "300-600")}
-          >
-            Rs. 300-Rs. 600
-          </button>
-          <button
-            className={`filter-btn ${filters.priceRange === "lessThan300" ? "active" : ""}`}
-            onClick={() => handleFilterChange("priceRange", filters.priceRange === "lessThan300" ? "" : "lessThan300")}
-          >
-            Less than Rs. 300
-          </button>
         </div>
-
         {/* Search Input */}
         <div className="filter-search">
           <input

@@ -1,50 +1,47 @@
-import './Footer.css';
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import React from 'react'
+import './Footer.css'
+import AnimatedQuotes from '../AnimatedQuotes/AnimatedQuotes'
+import logo from '../../assets/frontend_assets/logo.png'
+import facebook_icon from '../../assets/frontend_assets/facebook_icon.png'
+import twitter_icon from '../../assets/frontend_assets/twitter_icon.png'
+import linkedin_icon from '../../assets/frontend_assets/linkedin_icon.png'
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section about">
-          <h2>About Us</h2>
-          <p>Delicious food made with love and the finest ingredients. Join us for an unforgettable dining experience.</p>
-          <p>Email: contact@foodieshub.com</p>
-          <p>Phone: +123 456 7890</p>
+    <div className="footer">
+        <div className="footer-content">
+            <div className="footer-content-left">
+                <img src={logo} alt="Logo" />
+                <p>Indulge in culinary excellence with our carefully curated menu featuring the finest ingredients and authentic flavors. From traditional favorites to innovative creations, every dish tells a story of passion and dedication to the art of cooking.</p>
+                <div className="footer-social-icons">
+                    <img src={facebook_icon} alt="Facebook" />
+                    <img src={twitter_icon} alt="Twitter" />
+                    <img src={linkedin_icon} alt="LinkedIn" />
+                </div>
+            </div>
+            <div className="footer-content-center">
+                <h2>COMPANY</h2>
+                <ul>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Delivery</li>
+                    <li>Privacy policy</li>
+                </ul>
+            </div>
+            <div className="footer-content-right">
+                <h2>GET IN TOUCH</h2>
+                <ul>
+                    <li>+1 212-456-7890</li>
+                    <li>contact@fooddelivery.com</li>
+                </ul>
+            </div>
         </div>
+        <hr />
+        <p className="footer-copyright">Copyright 2024 © Food Delivery - All right reserved.</p>
+        
+        <AnimatedQuotes variant="floating" />
+    </div>
+  )
+}
 
-        <div className="footer-section links">
-          <h2>Quick Links</h2>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-section social">
-          <h2>Follow Us</h2>
-          <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaLinkedinIn /></a>
-          </div>
-        </div>
-
-        <div className="footer-section newsletter">
-          <h2>Newsletter</h2>
-          <p>Subscribe to get the latest updates and offers.</p>
-          <input type="email" placeholder="Your email" />
-          <button>Subscribe</button>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>&copy; 2025 Foodies Hub | All rights reserved.</p>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
+export default Footer
