@@ -1,4 +1,4 @@
-# 🍕 Food E-Commerce Application
+# 🍕 Food E-Commerce Application 
 
 A full-stack food delivery e-commerce application built with modern web technologies. This project consists of three main applications: a customer-facing frontend, an admin panel, and a backend API, providing a complete solution for food ordering and management.
 
